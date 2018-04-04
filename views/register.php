@@ -1,15 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Register</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" type="text/css"  />
-<link rel="stylesheet" href="/css/styles.css" type="text/css"  />
-</head>
-<body>
+<? include 'partials/header.php';?>
 <div class="container">
      <div class="form-container">
-        <form method="post">
+        <form method="post" action="register">
             <h2>Register.</h2><hr />
             <?php
             if(isset($error))
@@ -33,17 +25,17 @@
             }
             ?>
             <div class="form-group">
-            <input type="text" class="form-control" name="txt_uname" placeholder="Username" value="<?php if(isset($error)){echo $uname;}?>" />
+            <input type="text" class="form-control" name="uname" placeholder="Username" value="<?php if(isset($error)){echo $uname;}?>" />
             </div>
             <div class="form-group">
-            <input type="text" class="form-control" name="txt_umail" placeholder="Email" value="<?php if(isset($error)){echo $umail;}?>" />
+            <input type="text" class="form-control" name="umail" placeholder="Email" value="<?php if(isset($error)){echo $umail;}?>" />
             </div>
             <div class="form-group">
-             <input type="password" class="form-control" name="txt_upass" placeholder="Password" />
+             <input type="password" class="form-control" name="upass" placeholder="Password" />
             </div>
             <div class="clearfix"></div><hr />
             <div class="form-group">
-             <button type="submit" class="btn btn-block btn-primary" name="btn-signup">
+             <button type="submit" class="btn btn-block btn-primary" name="btn-register">
                  <i class="glyphicon glyphicon-open-file"></i>&nbsp;Register
                 </button>
             </div>
@@ -52,6 +44,4 @@
         </form>
        </div>
 </div>
-
-</body>
-</html>
+<? include 'partials/footer.php';?>

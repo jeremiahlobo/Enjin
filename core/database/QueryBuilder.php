@@ -1,11 +1,4 @@
 <?php
-/**
- * 
- * @authors ${author} (${email})
- * @date    2018-04-02
- * @version $Id$
- */
-
 class QueryBuilder{
 	protected $pdo;
 
@@ -13,13 +6,4 @@ class QueryBuilder{
 	{
 		$this->pdo = $pdo;
 	}
-    
-    public function selectAll($table, $intoClass)
-    {
-    	$statement = $this->pdo->prepare("select * from {$table}");
-
-		$statement->execute();
-
-		return $statement->fetchAll(PDO::FETCH_CLASS, $intoClass);
-    }
 }

@@ -1,24 +1,19 @@
-<? include 'partials/header.php';?>
+<? include 'partials/header.php'; ?>
 <div class="container">
      <div class="form-container">
-        <form method="post">
+        <form method="post" action="login">
             <h2>Login.</h2><hr/>
-            <!-- <?php
-            // if(isset($error))
-            {
-                  ?>
+            <?php if(isset($error)) :?>
                   <div class="alert alert-danger">
-                      // <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php ?> !
+                      <i class="glyphicon glyphicon-warning-sign"><?=$error['message'] ?></i> &nbsp; <?php ?>
                   </div>
-                  <?php
-            }
-            ?>
-             -->
+                  <?php endif;?>
+            
             <div class="form-group">
-             <input type="text" class="form-control" name="txt_uname_email" placeholder="Username or Email" required />
+             <input type="text" class="form-control" name="uname" placeholder="Username" required />
             </div>
             <div class="form-group">
-             <input type="password" class="form-control" name="txt_password" placeholder="Password" required />
+             <input type="password" class="form-control" name="upass" placeholder="Password" required />
             </div>
             <div class="clearfix"></div><hr />
             <div class="form-group">

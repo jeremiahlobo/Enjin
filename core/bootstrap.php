@@ -1,7 +1,4 @@
 <?php
-/**
- * bootstrap file
- */
 	$app =[];
  	$app ['config'] = require 'config.php';
 
