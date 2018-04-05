@@ -3,9 +3,10 @@
      <div class="form-container">
         <form method="post" action="login">
             <h2>Login.</h2><hr/>
-            <?php if(isset($error)) :?>
+            <?php
+            if(!empty($error)) :?>
                   <div class="alert alert-danger">
-                      <i class="glyphicon glyphicon-warning-sign"><?=$error['message'] ?></i> &nbsp; <?php ?>
+                      <i class="glyphicon glyphicon-warning-sign"><?=$error['message']?></i> &nbsp; <?php ?>
                   </div>
                   <?php endif;?>
             

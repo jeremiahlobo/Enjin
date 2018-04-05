@@ -1,4 +1,5 @@
 <? include 'partials/header.php';?>
+
 <div class="header">
 	<div class="left"></div>
 	<div class="right">
@@ -8,4 +9,5 @@
 <div class="content">
 	welcome : <?php print($username); ?>
 </div>
+
 <? include 'partials/footer.php';?>

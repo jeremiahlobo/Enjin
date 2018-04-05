@@ -26,11 +26,12 @@
 DROP TABLE IF EXISTS `Users`;
 
 CREATE TABLE `Users` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `username` varchar(255) NOT NULL DEFAULT '',
-  `email` varchar(60) NOT NULL DEFAULT '',
+  `email` varchar(255) NOT NULL DEFAULT '',
   `password` varchar(255) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
+   UNIQUE (`username`),
+   UNIQUE (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `Users` WRITE;

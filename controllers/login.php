@@ -6,7 +6,6 @@
 	{
 		redirect('dashboard');
 		exit();
-
 	}
 	$clean = [];
 	if (isset($_POST['btn-login'])) 
@@ -23,12 +22,9 @@
 				redirect('dashboard');
 			}else{
 				$error['message'] = 'please check your username and password';
-			 	redirect('/');
 			 	require 'views/login.php';
-			 	exit();
 			}
 		}else{
-			
 			$error['message'] = 'please check your username and password no special characters are allowed!';
 			 require 'views/login.php';
 			 exit();

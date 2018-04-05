@@ -15,13 +15,11 @@
 			$clean['password'] = htmlentities($_POST['upass'], ENT_QUOTES, 'UTF-8');
 			$userregister = new Users($app['config']['database']);
 			if ($userregister->register($clean)){
-				redirect('login');
+				require 'views/login.php';
 			}else{
-				//no validation has been taken into account
 				$error['message'] = '';
 			 	redirect('/');
 			 	require 'views/register.php';
-			 	exit();
 			}
 		}else{
 				$error['message'] = 'please check your username and password no special characters are allowed!';

@@ -1,4 +1,5 @@
 <?php
+
 	function diedump ($data)
 	{
 		echo '<pre>';

@@ -10,25 +10,25 @@
                {
                   ?>
                   <div class="alert alert-danger">
-                      <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
+                      <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?= $error ?>
                   </div>
                   <?php
                }
             }
             else if(isset($_GET['joined']))
             {
-                 ?>
-                 <div class="alert alert-info">
-                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Successfully registered <a href='index.php'>login</a> here
-                 </div>
-                 <?php
+               ?>
+               <div class="alert alert-info">
+                    <i class="glyphicon glyphicon-log-in"></i> &nbsp; Successfully registered <a href='index.php'>login</a> here
+               </div>
+               <?php
             }
             ?>
             <div class="form-group">
-            <input type="text" class="form-control" name="uname" placeholder="Username" value="<?= !empty($error) ?? $uname ?>" />
+            <input type="text" class="form-control" name="uname" placeholder="Username" value="<?=(!empty($error))?$uname : '' ?>" />
             </div>
             <div class="form-group">
-            <input type="text" class="form-control" name="umail" placeholder="Email" value="<?= !empty($error) ?? $uname ?>" />
+            <input type="text" class="form-control" name="umail" placeholder="Email" value="<?=(!empty($error))?$umail : '' ?>" />
             </div>
             <div class="form-group">
              <input type="password" class="form-control" name="upass" placeholder="Password" />

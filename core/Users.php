@@ -51,24 +51,24 @@ class Users
        	  $stmt = $this->userDBconn->prepare('SELECT * FROM Users WHERE username = :uname');
           $stmt->bindparam(':uname', $clean['username']);
           $stmt->execute();
-          
           $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+          
           if($stmt->rowCount() > 0)
           {
              if(password_verify($clean['password'], $userRow['password']))
              {
-                $this->setUserID($userRow['id']);
-                return true;
+              $this->setUserID($userRow['id']);
+              return true;
              }
              else
              {
-                return false;
+              return false;
              }
           }
        }
        catch(PDOException $e)
        {
-           echo $e->getMessage();
+          echo $e->getMessage();
        }
     }
 
@@ -80,9 +80,9 @@ class Users
 
     public static function logout()
     {
-        session_destroy();
-        unset($_SESSION['enjin_session']);
-        unset($_SESSION['username']);
-        return true;
+      session_destroy();
+      unset($_SESSION['enjin_session']);
+      unset($_SESSION['username']);
+      return true;
     }
 }
