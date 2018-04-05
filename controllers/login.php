@@ -30,7 +30,7 @@
 		}else{
 			
 			$error['message'] = 'please check your username and password no special characters are allowed!';
-			 require 'controllers/login.php';
+			 require 'views/login.php';
 			 exit();
 		}
 	}else{

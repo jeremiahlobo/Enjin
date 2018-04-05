@@ -8,8 +8,7 @@
 		exit();
 	}
 	$clean = [];
-	if (isset($_POST['btn-register'])) 
-	{
+	if (isset($_POST['btn-register'])){
 		if (ctype_alnum($_POST['uname']) || ctype_alpha($_POST['uname'])){
 			$clean['username'] = htmlentities($_POST['uname'], ENT_QUOTES, 'UTF-8');
 			$clean['email'] = htmlentities($_POST['umail'], ENT_QUOTES, 'UTF-8');
@@ -18,18 +17,18 @@
 			if ($userregister->register($clean)){
 				redirect('login');
 			}else{
-				$error['message'] = 'please check your username and password';
+				//no validation has been taken into account
+				$error['message'] = '';
 			 	redirect('/');
-			 	require 'views/login.php';
+			 	require 'views/register.php';
 			 	exit();
 			}
 		}else{
-			$error['message'] = 'please check your username and password no special characters are allowed!';
-			 require 'controllers/login.php';
-			 exit();
+				$error['message'] = 'please check your username and password no special characters are allowed!';
+				require 'views/register.php';
+				exit();
 		}
-	}else{
-		
+	}else{	
 		$title = 'register';
 		require 'views/register.php';
 	}

@@ -5,39 +5,37 @@
 
 class Users
 {
-  	protected $userDBconn;
+    protected $userDBconn;
     protected $uid;
 
-  	public function __construct($config)
+    public function __construct($config)
     {
-  		$this->userDBconn = Connection::make($config);
-  	}
+    	$this->userDBconn = Connection::make($config);
+    }
 
-    
+
     public function setUserID($uid)
     {
         return $this->userid = $uid;
     }
 
-    public function getUserID(){
-      return $this->userid;
+    public function getUserID()
+    {
+        return $this->userid;
     }
 
     public function register($clean)
     {
-
        try
        {
            $newPass = password_hash($clean['password'], PASSWORD_DEFAULT);
-   
+
            $stmt = $this->userDBconn->prepare('INSERT INTO Users(username,email,password) 
                                                        VALUES(:uname,:umail,:upass)');
-              
            $stmt->bindparam(':uname', $clean['username']);
            $stmt->bindparam(':umail', $clean['email']);
            $stmt->bindparam(':upass', $newPass);            
-           $stmt->execute(); 
-   			
+           $stmt->execute();
            return $stmt; 
        }
        catch(PDOException $e)
@@ -45,7 +43,7 @@ class Users
            echo $e->getMessage();
        }    
     }
- 
+
     public function verifylogin($clean)
     {
     	try
@@ -72,26 +70,19 @@ class Users
        {
            echo $e->getMessage();
        }
-   }
+    }
 
 
-   public static function loggedin()
-   {
-      if(isset($_SESSION['enjin_session']))
-      {
-          return true;
-      }else{
-          return false;
-      }
-   }
- 
-   public static function logout()
-   {
+    public static function loggedin()
+    {
+      return $_SESSION['enjin_session'];
+    }
+
+    public static function logout()
+    {
         session_destroy();
         unset($_SESSION['enjin_session']);
         unset($_SESSION['username']);
         return true;
-   }
-
-
+    }
 }

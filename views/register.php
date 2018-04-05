@@ -25,10 +25,10 @@
             }
             ?>
             <div class="form-group">
-            <input type="text" class="form-control" name="uname" placeholder="Username" value="<?php if(isset($error)){echo $uname;}?>" />
+            <input type="text" class="form-control" name="uname" placeholder="Username" value="<?= !empty($error) ?? $uname ?>" />
             </div>
             <div class="form-group">
-            <input type="text" class="form-control" name="umail" placeholder="Email" value="<?php if(isset($error)){echo $umail;}?>" />
+            <input type="text" class="form-control" name="umail" placeholder="Email" value="<?= !empty($error) ?? $uname ?>" />
             </div>
             <div class="form-group">
              <input type="password" class="form-control" name="upass" placeholder="Password" />
