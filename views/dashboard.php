@@ -7,7 +7,7 @@
 	</div>
 </div>
 <div class="content">
-	welcome : <?php print($username); ?>
+	welcome : <?=$username;?>
 </div>
 
 <? include 'partials/footer.php';?>
