@@ -52,7 +52,7 @@ class Users
           $stmt->bindparam(':uname', $clean['username']);
           $stmt->execute();
           $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-          
+
           if($stmt->rowCount() > 0)
           {
              if(password_verify($clean['password'], $userRow['password']))
@@ -60,10 +60,7 @@ class Users
               $this->setUserID($userRow['id']);
               return true;
              }
-             else
-             {
               return false;
-             }
           }
        }
        catch(PDOException $e)
